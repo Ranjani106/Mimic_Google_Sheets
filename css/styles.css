@@ -1,0 +1,272 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+/* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Spreadsheet Body Cells */
+.spreadsheet-cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    background-color: #fdfdfd;
+    cursor: pointer;
+    padding: 5px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Focus Effect for Editing */
+.spreadsheet-cell:focus {
+    outline: none;
+    border-color: #4CAF50;
+    background-color: #e8f5e9;
+}
+
+/* Column Headers Styling */
+#column-header {
+    display: grid;
+    grid-template-columns: repeat(27, 100px);
+    background-color: #e1e1e1;
+}
+
+/* Row Headers Styling */
+#row-header {
+    display: grid;
+    grid-template-rows: repeat(30, 30px);
+    background-color: #e1e1e1;
+}
+
+/* Toolbars and Buttons */
+#toolbar {
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 5px 10px;
+    font-size: 14px;
+    margin: 0 5px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f0f0f0;
+}
+
+
+button:hover {
+    background-color: #ddd;
+}
+
+button:active {
+    background-color: #ccc;
+}
+
+#spreadsheet-container {
+    display: grid;
+    grid-template-columns: 50px auto; /* Fixed width for row headers */
+    grid-template-rows: 30px auto;   /* Fixed height for column headers */
+    font-family: Arial, sans-serif;
+    box-sizing: border-box; /* Ensure consistent box-sizing */
+    overflow: auto;
+    gap: 1px;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.header {
+    display: grid;
+    background-color: #f0f0f0;
+    border-bottom: 1px solid #ccc;
+    font-weight: bold;
+}
+
+#row-header {
+    grid-row: 2 / span 1;
+    grid-column: 1 / span 1;
+    display: grid;
+    grid-template-rows: repeat(30, 30px); /* Match the number of rows in the body */
+    align-items: center;
+    justify-items: center;
+    background-color: #e6e6e6;
+}
+
+#column-header {
+     grid-row: 1 / span 1;
+    grid-column: 2 / span 1;
+    display: grid;
+    grid-template-columns: repeat(10, 100px); 
+    align-items: center;
+    justify-items: center;
+    background-color: #e6e6e6;
+    overflow-x: auto; /* Allow horizontal scrolling if needed */
+     border-bottom: 1px solid #ccc;  
+    position: sticky;
+    top: 0;
+    background-color: #f0f0f0;
+    z-index: 1;
+}
+
+#spreadsheet-body {
+    grid-row: 2 / span 1;
+    grid-column: 2 / span 1;
+    display: grid;
+    grid-template-columns: repeat(10, 100px); /* Match the number of columns in the header */
+    grid-template-rows: repeat(30, 30px);    /* Match the number of rows */
+    gap: 0; /* Prevent extra spacing between cells */
+    border: 1px solid #ccc;
+    margin-top: 10px;
+}
+
+.cell {
+    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 0; /* Remove padding to prevent extra space */
+    box-sizing: border-box; /* Ensure borders are included in the cell size */
+}
+
+.column-header-cell,
+.row-header-cell {
+    font-weight: bold;
+    background-color: #f2f2f2;
+    text-align: center;
+    box-sizing: border-box; /* Include borders in the header size */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    border: 1px solid #ccc;
+}
+.spreadsheet-cell:hover {
+    background-color: #f0f8ff;
+    border-color: #4CAF50;
+}
+button i, button .material-icons {
+    font-size: 18px;
+    color: #333;
+}
+
+button:hover i, button:hover .material-icons {
+    color: #4CAF50; /* Change color on hover */
+}
+.column-header-cell:hover, .row-header-cell:hover {
+    background-color: #e1e1e1;
+    cursor: pointer;
+}
+/* Overall container for the header section */
+#header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #4CAF50; /* Green background */
+    padding: 10px 20px;
+    color: white;
+    border-radius: 5px 5px 0 0;
+    margin-bottom: 10px; /* Space between header and spreadsheet */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Title Styling */
+#spreadsheet-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Save buttons container */
+#save-buttons {
+    display: flex;
+    gap: 15px; /* Space between buttons */
+}
+
+/* Save button styling */
+.save-btn {
+    display: flex;
+    align-items: center;
+    padding: 8px 15px;
+    background-color: #fff;
+    color: #4CAF50;
+    border: 1px solid #4CAF50;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.save-btn:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Save button icons */
+.save-btn i {
+    margin-right: 8px;
+}
+
+/* Icon size */
+.save-btn i {
+    font-size: 16px;
+}
+#spreadsheet-logo {
+    height: 40px; /* Adjust size */
+    margin-right: 15px; /* Space between logo and title */
+}
+@media (max-width: 768px) {
+    #header-container {
+        flex-direction:column;
+        align-items: flex-start;
+    }
+    #save-buttons {
+        margin-top: 10px;
+    }
+    #header-left {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    #header-right {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 10px;
+        
+}
+
+}.action-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    gap: 1px;
+}
+.action-btn:hover {
+    color: #3badff; /* Change color on hover */
+}
+/* Font Awesome icons inside buttons */
+.save-btn i, .action-btn i {
+    margin-right: 8px;
+}
+
+/* Add icon sizes */
+.save-btn i, .action-btn i {
+    font-size: 16px;
+}

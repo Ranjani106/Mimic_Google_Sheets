@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Sheets Mimic</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Add Font Awesome CDN for Icons -->
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+<body>
+    <div id="header-container">
+        <!-- Left side: Title and Search Bar -->
+        <div id="header-left">
+            <input type="text" id="search-input" placeholder="Untitled Spreadsheet" class="search-bar">
+        </div>
+        
+        
+        <!-- Right side: Buttons and Font Controls -->
+        <div id="header-right">
+            <div id="font-controls">
+                <select id="font-family">
+                    <option value="Arial">Arial</option>
+                    <option value="Verdana">Verdana</option>
+                    <option value="Courier New">Courier New</option>
+                    <option value="Georgia">Georgia</option>
+                </select>
+                <select id="font-size">
+                    <option value="12px">12px</option>
+                    <option value="14px">14px</option>
+                    <option value="16px">16px</option>
+                    <option value="18px">18px</option>
+                </select>
+            </div>
+            
+            <!-- <div id="actions">
+                <button class="btn btn-primary">
+                    <span class="material-icons">save</span> Save as JSON
+                  </button>
+                  <button class="btn btn-success">
+                    <span class="material-icons">cloud_upload</span> Save as CSV
+                  </button>
+            </div> -->
+
+            <button class="btn btn-primary" id="save-json">
+                <span class="material-icons">save</span> Save as JSON
+            </button>
+            <button class="btn btn-success" id="save-csv">
+                <span class="material-icons">cloud_upload</span> Save as CSV
+            </button>
+            
+        </div>
+    </div>
+
+    <div class="toolbar">
+<button id="bold-btn" title="Bold"><span class="material-icons">format_bold</span>Bold</button>
+<button id="italic-btn" title="Italic"><span class="material-icons">format_italic</span>Italic</button>
+<button id="sum-btn" title="Sum"><span class="material-icons">add_circle_outline</span>Sum</button>
+<button id="average-btn" title="Average"><span class="material-icons">equalizer</span>Average</button>
+<button id="min-btn" title="Min"><span class="material-icons">arrow_downward</span>Min</button>
+<button id="max-btn" title="Max"><span class="material-icons">arrow_upward</span>Max</button>
+<button id="count-btn" title="Max"><span class="material-icons">filter_list</span>Count</button>
+<button id="trim-btn" title="Trim"><span class="material-icons">format_clear</span>Trim</button>
+<button id="upper-btn" title="Uppercase"><span class="material-icons">text_increase</span>Uppercase</button>
+<button id="lower-btn" title="Lowercase"><span class="material-icons">text_decrease</span>Lowercase</button>
+<button id="remove-duplicates-btn" title="Remove Duplicates"><span class="material-icons">cancel</span>Remove Duplicates</button>
+<button id="find-replace-btn" title="Find and Replace"><span class="material-icons">search</span>Find and Replace</button>
+
+    </div>
+
+    <div id="spreadsheet-container">
+        <div id="row-header" class="header"></div>
+        <div id="column-header" class="header"></div>
+        <div id="spreadsheet-body"></div>
+    </div>
+    
+    <div id="spreadsheet-container">
+        <div id="spreadsheet-content">
+            <!-- Your spreadsheet content will go here -->
+        </div>
+    
+    
+
+    <script type="module" src="js/utilsDOM.js"></script>
+    <script type="module" src="js/excel.js"></script>
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
+
